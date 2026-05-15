@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HashGenerator from "../../features/hash-generator/HashGenerator";
+---
+
+<BaseLayout title="Hash Generator | Secure Online Hashing">
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold text-white mb-2">Hash Generator</h1>
+    <p class="text-neutral-400">
+      Securely generate SHA-1, SHA-256, SHA-384, and SHA-512 hashes locally.
+    </p>
+  </div>
+
+  <HashGenerator client:load />
+</BaseLayout>

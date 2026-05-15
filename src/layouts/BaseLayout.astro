@@ -8,6 +8,7 @@ const { title = "DevToolsHub" } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/icon.png" />
     <title>{title}</title>
   </head>
 
@@ -15,7 +16,7 @@ const { title = "DevToolsHub" } = Astro.props;
     <header class="sticky top-0 z-50 border-b border-neutral-800 bg-neutral-950/80 backdrop-blur-md">
       <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         <a href="/" class="flex items-center gap-2 transition-opacity hover:opacity-80">
-          <div class="size-8 rounded-lg bg-blue-600 shadow-lg shadow-blue-600/20"></div>
+          <img src="/icon.png" alt="DevToolsHub Logo" class="size-8" />
           <h1 class="text-xl font-bold tracking-tight text-white">DevToolsHub</h1>
         </a>
         <nav class="flex items-center gap-6">

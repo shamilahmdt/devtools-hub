@@ -11,7 +11,7 @@ export default function UrlConverter() {
   const [encodeFullUrl, setEncodeFullUrl] = useState(true);
 
   const hasInput = input.trim().length > 0;
-  const canUseOutput = output && output !== "invalid input";
+  const canUseOutput = output && output !== "Unable to encode URL" && output !== "Invalid encoded URL";
 
   function encodeQueryValues(value: string) {
     const url = new URL(value);
@@ -31,7 +31,7 @@ export default function UrlConverter() {
 
       setOutput(result);
     } catch {
-      setOutput("invalid input");
+      setOutput("Unable to encode URL");
     }
   }
 
@@ -39,7 +39,7 @@ export default function UrlConverter() {
     try {
       setOutput(decodeURIComponent(input));
     } catch {
-      setOutput("invalid input");
+      setOutput("Invalid encoded URL");
     }
   }
 

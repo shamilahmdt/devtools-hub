@@ -9,7 +9,7 @@ export default function JsonFormatter() {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
 
-  const canUseOutput = output && output !== "invalid json";
+  const canUseOutput = output && output !== "Invalid JSON format";
 
   const hasInput = input.trim().length > 0;
 
@@ -18,7 +18,7 @@ export default function JsonFormatter() {
       const parsed = JSON.parse(input);
       setOutput(JSON.stringify(parsed, null, 2));
     } catch {
-      setOutput("invalid json");
+      setOutput("Invalid JSON format");
     }
   }
 
@@ -31,7 +31,7 @@ export default function JsonFormatter() {
       const parsed = JSON.parse(compact);
       setOutput(JSON.stringify(parsed, null, 2));
     } catch {
-      setOutput("invalid json");
+      setOutput("Invalid JSON format");
     }
   }
 

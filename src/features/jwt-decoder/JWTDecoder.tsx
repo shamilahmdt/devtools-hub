@@ -58,7 +58,7 @@ export default function JWTDecoder() {
       const parts = token.split(".");
 
       if (parts.length !== 3) {
-        throw new Error("invalid jwt");
+        throw new Error("Invalid JWT token");
       }
 
       setDecoded({
@@ -72,7 +72,7 @@ export default function JWTDecoder() {
         header: null,
         payload: null,
         signature: "",
-        error: "invalid jwt",
+        error: "Invalid JWT token",
       });
     }
   }
@@ -97,7 +97,7 @@ export default function JWTDecoder() {
         header: null,
         payload: null,
         signature: "",
-        error: "invalid jwt",
+        error: "Invalid JWT token",
       });
     }
   }

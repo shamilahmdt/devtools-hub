@@ -11,7 +11,7 @@ export default function Base64Converter() {
   const [output, setOutput] = useState("");
 
   const hasInput = input.trim().length > 0;
-  const canUseOutput = output && output !== "invalid base64";
+  const canUseOutput = output && output !== "Invalid Base64 string";
 
   function encodeBase64() {
     try {
@@ -25,7 +25,7 @@ export default function Base64Converter() {
     try {
       setOutput(atob(input));
     } catch {
-      setOutput("invalid base64");
+      setOutput("Invalid Base64 string");
     }
   }
 

@@ -71,7 +71,7 @@ export default function TimestampConverter() {
         utc: "",
         seconds: "",
         milliseconds: "",
-        error: "invalid input",
+        error: "Invalid timestamp format",
       });
     }
   }

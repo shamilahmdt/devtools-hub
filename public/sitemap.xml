@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://devtools-hub-beryl.vercel.app/</loc>
+  </url>
+  <url>
+    <loc>https://devtools-hub-beryl.vercel.app/tools/json-formatter</loc>
+  </url>
+  <url>
+    <loc>https://devtools-hub-beryl.vercel.app/tools/base64-converter</loc>
+  </url>
+  <url>
+    <loc>https://devtools-hub-beryl.vercel.app/tools/hash-generator</loc>
+  </url>
+  <url>
+    <loc>https://devtools-hub-beryl.vercel.app/tools/jwt-decoder</loc>
+  </url>
+  <url>
+    <loc>https://devtools-hub-beryl.vercel.app/tools/timestamp-converter</loc>
+  </url>
+  <url>
+    <loc>https://devtools-hub-beryl.vercel.app/tools/url-converter</loc>
+  </url>
+  <url>
+    <loc>https://devtools-hub-beryl.vercel.app/tools/uuid-generator</loc>
+  </url>
+</urlset>

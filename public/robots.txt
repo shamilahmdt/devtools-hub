@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Aggressive indexing parameters
+User-agent: Googlebot
+Allow: /
+Allow: /tools/
+Allow: /icon.png
+Allow: /manifest.json
+
+# Tell crawlers where the site map is (update domain when hosted)
+# Sitemap: https://your-domain.com/sitemap-index.xml

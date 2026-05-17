@@ -1,21 +1,65 @@
 ---
 import "../styles/global.css";
 
-const { title = "DevToolsHub" } = Astro.props;
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const domain = "https://devtools-hub-beryl.vercel.app";
+const canonicalUrl = new URL(Astro.url.pathname, domain).toString();
+
+const { 
+  title = "DevTools Hub - The Ultimate Developer Utility Belt",
+  description = "A powerful collection of essential developer tools including JSON formatters, Base64 converters, UUID generators, hash calculators, and more. Free, offline-first, and open-source."
+} = Astro.props;
 import Search from "../components/tool/Search";
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/icon.png" />
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#0a0a0a" />
+    
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="developer tools, json formatter, base64 encoder, jwt decoder, hash generator, uuid generator, unix timestamp converter, devtools hub, programming utilities, online developer tools" />
+    <meta name="author" content="DevTools Hub" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    
+    <meta name="google-site-verification" content="mJ6fh5_ye3KXYDnHSiFu-i_plcg2pHw6jCkdTCB9nfQ" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/icon.png" />
+    <meta property="og:site_name" content="DevTools Hub" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/icon.png" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": title.split(' | ')[0],
+      "description": description,
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "url": canonicalUrl,
+      "offers": {
+        "@type": "Offer",
+        "price": "0"
+      }
+    })} />
   </head>
 
-  <body class="min-h-screen bg-neutral-950 text-neutral-200 antialiased selection:bg-blue-500/30">
+  <body class="flex min-h-screen flex-col bg-neutral-950 text-neutral-200 antialiased selection:bg-blue-500/30">
     <header class="sticky top-0 z-50 border-b border-neutral-800 bg-neutral-950/80 backdrop-blur-md">
       <div class="mx-auto flex max-w-5xl items-center justify-between gap-8 px-6 py-4">
         <a href="/" class="flex items-center gap-2 transition-opacity hover:opacity-80 shrink-0">
@@ -33,11 +77,11 @@ import Search from "../components/tool/Search";
       </div>
     </header>
 
-    <main class="mx-auto max-w-5xl px-6 py-12">
+    <main class="mx-auto w-full max-w-5xl flex-1 px-6 py-12">
       <slot />
     </main>
 
-    <footer class="border-t border-neutral-800 py-12 text-center text-sm text-neutral-500">
+    <footer class="mt-auto border-t border-neutral-800 px-6 py-8 text-right text-sm text-neutral-500">
       <p>&copy; {new Date().getFullYear()} DevToolsHub. Open source starter.</p>
     </footer>
 

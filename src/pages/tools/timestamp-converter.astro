@@ -3,7 +3,10 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import TimestampConverter from "../../features/timestamp-converter/TimestampConverter.tsx";
 ---
 
-<BaseLayout title="Timestamp Converter">
+<BaseLayout 
+  title="Unix Epoch Timestamp Converter | Free Date to Timestamp Tool"
+  description="Convert Unix epoch timestamps to human-readable dates and vice versa. A fast, free, offline-ready web developer tool."
+>
   <h2 class="mb-6 text-2xl font-semibold">Timestamp Converter</h2>
 
   <TimestampConverter client:load />

@@ -10,6 +10,8 @@ import Search from "../components/tool/Search";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href="/icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#0a0a0a" />
     <title>{title}</title>
   </head>
 
@@ -38,5 +40,16 @@ import Search from "../components/tool/Search";
     <footer class="border-t border-neutral-800 py-12 text-center text-sm text-neutral-500">
       <p>&copy; {new Date().getFullYear()} DevToolsHub. Open source starter.</p>
     </footer>
+
+    <script is:inline>
+      // register service worker for offline pwa support
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js').catch((err) => {
+            console.error('service worker registration failed:', err);
+          });
+        });
+      }
+    </script>
   </body>
 </html>

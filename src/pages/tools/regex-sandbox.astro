@@ -1,0 +1,13 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import RegexSandboxTool from "../../features/regex-sandbox/RegexSandbox";
+---
+
+<BaseLayout
+  title="Regex Sandbox | Free Online Developer Tool"
+  description="Test and debug regular expressions visually. Find matches, capture groups, and understand your regex patterns instantly."
+>
+  <h2 class="mb-6 text-2xl font-semibold">Regex Sandbox</h2>
+
+  <RegexSandboxTool client:load />
+</BaseLayout>

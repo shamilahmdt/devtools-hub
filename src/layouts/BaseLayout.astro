@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
 import { Image } from "astro:assets";
+import ThemeToggle from "../components/ThemeToggle";
+import Search from "../components/tool/Search";
 
 export interface Props {
   title?: string;
@@ -15,7 +17,6 @@ const {
   title = "DevTools Hub - The Ultimate Developer Utility Belt",
   description = "A powerful collection of essential developer tools including JSON formatters, Base64 converters, UUID generators, hash calculators, and more. Free, offline-first, and open-source."
 } = Astro.props;
-import Search from "../components/tool/Search";
 ---
 
 <html lang="en">
@@ -25,14 +26,14 @@ import Search from "../components/tool/Search";
     <link rel="icon" type="image/png" href="/icon.png" />
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#0a0a0a" />
-    
+
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content="developer tools, json formatter, base64 encoder, jwt decoder, hash generator, uuid generator, unix timestamp converter, devtools hub, programming utilities, online developer tools" />
     <meta name="author" content="DevTools Hub" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href={canonicalUrl} />
-    
+
     <meta name="google-site-verification" content="mJ6fh5_ye3KXYDnHSiFu-i_plcg2pHw6jCkdTCB9nfQ" />
 
     <meta property="og:type" content="website" />
@@ -59,22 +60,33 @@ import Search from "../components/tool/Search";
         "price": "0"
       }
     })} />
+
+    <script is:inline>
+      (function() {
+        var theme = localStorage.getItem('theme');
+        if (!theme) {
+          theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
   </head>
 
-  <body class="flex min-h-screen flex-col bg-neutral-950 text-neutral-200 antialiased selection:bg-blue-500/30">
-    <header class="sticky top-0 z-50 border-b border-neutral-800 bg-neutral-950/80 backdrop-blur-md">
+  <body class="flex min-h-screen flex-col bg-ground text-secondary antialiased selection:bg-accent/30">
+    <header class="sticky top-0 z-50 border-b border-border bg-header-bg backdrop-blur-md">
       <div class="mx-auto flex max-w-7xl items-center justify-between gap-8 px-6 py-4">
         <a href="/" class="flex items-center gap-2 transition-opacity hover:opacity-80 shrink-0">
           <Image src="/icon.png" alt="DevToolsHub Logo" width={32} height={32} loading="eager" class="size-8" />
-          <h1 class="text-xl font-bold tracking-tight text-white hidden sm:block">DevToolsHub</h1>
+          <h1 class="text-xl font-bold tracking-tight text-primary hidden sm:block">DevToolsHub</h1>
         </a>
 
         <div class="flex-1 flex justify-center">
           <Search client:load />
         </div>
 
-        <nav class="flex items-center gap-6 shrink-0">
-          <a href="https://github.com/shabeeltt/devtools-hub" class="text-sm font-medium text-neutral-400 hover:text-white">GitHub</a>
+        <nav class="flex items-center gap-3 shrink-0">
+          <ThemeToggle client:load />
+          <a href="https://github.com/shabeeltt/devtools-hub" class="text-sm font-medium text-secondary hover:text-primary">GitHub</a>
         </nav>
       </div>
     </header>
@@ -84,7 +96,7 @@ import Search from "../components/tool/Search";
         <>
           <button
             id="dynamic-back-button"
-            class="mb-6 hidden items-center gap-2 text-sm font-medium text-neutral-400 transition-colors hover:text-white group"
+            class="mb-6 hidden items-center gap-2 text-sm font-medium text-secondary transition-colors hover:text-primary group"
             onclick="window.history.back()"
           >
             <svg 
@@ -114,12 +126,11 @@ import Search from "../components/tool/Search";
       <slot />
     </main>
 
-    <footer class="mt-auto border-t border-neutral-800 px-6 py-8 text-right text-sm text-neutral-500">
+    <footer class="mt-auto border-t border-border px-6 py-8 text-right text-sm text-muted">
       <p>&copy; {new Date().getFullYear()} DevToolsHub. Open source starter.</p>
     </footer>
 
     <script is:inline>
-      // register service worker for offline pwa support
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('/service-worker.js').catch((err) => {

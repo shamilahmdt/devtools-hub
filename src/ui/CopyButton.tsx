@@ -23,7 +23,7 @@ export default function CopyButton({ value, className }: CopyButtonProps) {
         <button
             onClick={handleCopyToClipboard}
             disabled={isCopied}
-            className={`${className} rounded bg-neutral-800 px-3 py-1 text-xs text-white hover:bg-neutral-700`}
+            className={`${className} rounded bg-surface px-3 py-1 text-xs text-secondary hover:bg-elevated`}
         >
             {isCopied ? "Copied" : "Copy"}
         </button>

@@ -79,11 +79,9 @@ export default function HashGenerator() {
 
   return (
     <div className="space-y-8">
-      {/* Settings Row */}
-      <div className="flex flex-wrap items-center gap-6 rounded-xl border border-neutral-800 bg-neutral-900/50 p-4">
-        {/* Algorithm Selection */}
+      <div className="flex flex-wrap items-center gap-6 rounded-xl border border-border bg-surface/50 p-4">
         <div className="flex flex-wrap items-center gap-4">
-          <span className="text-sm font-medium text-neutral-400">Algorithm:</span>
+          <span className="text-sm font-medium text-secondary">Algorithm:</span>
           <div className="flex flex-wrap gap-2">
             {algorithms.map((algo) => (
               <button
@@ -91,8 +89,8 @@ export default function HashGenerator() {
                 onClick={() => setAlgorithm(algo)}
                 className={`rounded-lg px-4 py-1.5 text-sm font-medium transition-all ${
                   algorithm === algo
-                    ? "bg-blue-500 text-white shadow-lg shadow-blue-500/20"
-                    : "bg-neutral-800 text-neutral-400 hover:bg-neutral-700 hover:text-white"
+                    ? "bg-accent text-white shadow-lg shadow-accent/20"
+                    : "bg-elevated text-secondary hover:bg-border hover:text-primary"
                 }`}
               >
                 {algo}
@@ -101,18 +99,17 @@ export default function HashGenerator() {
           </div>
         </div>
 
-        <div className="h-6 w-px bg-neutral-800 hidden sm:block" />
+        <div className="h-6 w-px bg-border hidden sm:block" />
 
-        {/* Modes */}
         <div className="flex items-center gap-6">
           <label className="flex items-center gap-2 cursor-pointer group">
             <input
               type="checkbox"
               checked={isHmac}
               onChange={(e) => setIsHmac(e.target.checked)}
-              className="size-4 rounded border-neutral-700 bg-neutral-800 text-blue-500 focus:ring-0 focus:ring-offset-0"
+              className="size-4 rounded border-border bg-elevated text-accent focus:ring-0 focus:ring-offset-0"
             />
-            <span className="text-sm font-medium text-neutral-400 group-hover:text-neutral-300">HMAC Mode</span>
+            <span className="text-sm font-medium text-secondary group-hover:text-primary">HMAC Mode</span>
           </label>
 
           <label className="flex items-center gap-2 cursor-pointer group">
@@ -120,31 +117,29 @@ export default function HashGenerator() {
               type="checkbox"
               checked={isLive}
               onChange={(e) => setIsLive(e.target.checked)}
-              className="size-4 rounded border-neutral-700 bg-neutral-800 text-blue-500 focus:ring-0 focus:ring-offset-0"
+              className="size-4 rounded border-border bg-elevated text-accent focus:ring-0 focus:ring-offset-0"
             />
-            <span className="text-sm font-medium text-neutral-400 group-hover:text-neutral-300">Live Mode</span>
+            <span className="text-sm font-medium text-secondary group-hover:text-primary">Live Mode</span>
           </label>
         </div>
       </div>
 
-      {/* Secret Key Input (Only in HMAC Mode) */}
       {isHmac && (
         <div className="animate-in fade-in slide-in-from-top-2 duration-200">
           <div className="space-y-2">
-            <label className="text-sm text-neutral-400">Secret Key</label>
+            <label className="text-sm text-secondary">Secret Key</label>
             <input
               type="text"
               value={secretKey}
               onChange={(e) => setSecretKey(e.target.value)}
               placeholder="Enter your secret key..."
-              className="w-full rounded-xl border border-neutral-800 bg-neutral-900 p-4 font-mono text-sm text-white outline-none focus:border-blue-500/50"
+              className="w-full rounded-xl border border-border bg-surface p-4 font-mono text-sm text-primary outline-none focus:border-accent/50"
             />
           </div>
         </div>
       )}
 
       <div className="grid gap-6 md:grid-cols-2">
-        {/* Input */}
         <ToolTextarea
           label="Input Text"
           value={input}
@@ -154,7 +149,6 @@ export default function HashGenerator() {
           rightLabel={<SampleButton onClick={loadSample} />}
         />
 
-        {/* Output */}
         <ToolTextarea
           label={`${isHmac ? "HMAC-" : ""}${algorithm} result`}
           value={output}
@@ -182,8 +176,7 @@ export default function HashGenerator() {
         </Button>
       </ToolActions>
 
-      {/* Info Card */}
-      <div className="rounded-xl border border-neutral-800 bg-neutral-900/50 p-4 text-sm text-neutral-400">
+      <div className="rounded-xl border border-border bg-surface/50 p-4 text-sm text-secondary">
         <p>
           <strong>Security Note:</strong> {isHmac 
             ? "HMAC (Hash-based Message Authentication Code) uses a secret key to verify both the data integrity and the authenticity of a message."

@@ -4,7 +4,6 @@ import CopyButton from "../../ui/CopyButton";
 import ToolActions from "../../components/tool/ToolActions";
 import Button from "../../ui/Button";
 import SampleButton from "../../ui/SampleButton";
-import { decode } from "astro:schema";
 
 export default function Base64Converter() {
   const [input, setInput] = useState("");
@@ -45,7 +44,6 @@ export default function Base64Converter() {
     <div className="space-y-6">
       <div className="grid gap-4 md:grid-cols-2">
 
-        {/*Input */}
         <ToolTextarea
           label="Input"
           value={input}
@@ -57,7 +55,6 @@ export default function Base64Converter() {
           }
         />
 
-        {/*Output */}
         <ToolTextarea
           label="Output"
           value={output}

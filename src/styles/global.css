@@ -1,8 +1,58 @@
 @import "tailwindcss";
 
+@theme {
+  --color-ground: #0f1115;
+  --color-surface: #151922;
+  --color-elevated: #1a1f2e;
+  --color-border: #232937;
+  --color-border-hover: #334155;
+  --color-primary: #f1f5f9;
+  --color-secondary: #94a3b8;
+  --color-muted: #64748b;
+  --color-accent: #3b82f6;
+  --color-accent-hover: #60a5fa;
+  --color-accent-bg: rgba(59, 130, 246, 0.1);
+  --color-accent-active: #2563eb;
+  --color-danger: #f87171;
+  --color-danger-bg: rgba(239, 68, 68, 0.1);
+  --color-danger-border: rgba(239, 68, 68, 0.2);
+  --color-success: #4ade80;
+  --color-success-bg: rgba(34, 197, 94, 0.1);
+  --color-header-bg: rgba(15, 17, 21, 0.8);
+  --color-search-bg: #151922;
+  --color-search-hover: #1a1f2e;
+}
+
+[data-theme="light"] {
+  --color-ground: #f8fafc;
+  --color-surface: #ffffff;
+  --color-elevated: #f1f5f9;
+  --color-border: #dbe3ee;
+  --color-border-hover: #cbd5e1;
+  --color-primary: #0f172a;
+  --color-secondary: #475569;
+  --color-muted: #94a3b8;
+  --color-accent: #3b82f6;
+  --color-accent-hover: #2563eb;
+  --color-accent-bg: rgba(59, 130, 246, 0.08);
+  --color-accent-active: #1d4ed8;
+  --color-danger: #dc2626;
+  --color-danger-bg: rgba(239, 68, 68, 0.06);
+  --color-danger-border: rgba(239, 68, 68, 0.15);
+  --color-success: #16a34a;
+  --color-success-bg: rgba(34, 197, 94, 0.06);
+  --color-header-bg: rgba(248, 250, 252, 0.8);
+  --color-search-bg: #ffffff;
+  --color-search-hover: #f1f5f9;
+}
+
+[data-disable-transitions] * {
+  transition: none !important;
+}
+
 .custom-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #525252 #171717;
+  scrollbar-color: var(--color-border) var(--color-surface);
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -11,18 +61,18 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #171717;
+  background: var(--color-surface);
   border-radius: 9999px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #525252;
+  background: var(--color-border);
   border-radius: 9999px;
-  border: 2px solid #171717;
+  border: 2px solid var(--color-surface);
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #737373;
+  background: var(--color-border-hover);
 }
 
 button {

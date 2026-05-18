@@ -17,12 +17,12 @@ export default function Button({
 
   const variants = {
     primary:
-      "bg-blue-600 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-500/20",
+      "bg-accent text-white hover:bg-accent-hover shadow-lg shadow-accent/20",
     secondary:
-      "rounded-full bg-neutral-600 font-semibold text-white hover:bg-neutral-700 hover:shadow-lg hover:shadow-neutral-500/20",
+      "bg-elevated text-primary hover:bg-border hover:shadow-lg hover:shadow-border/20",
   };
 
-  const disabledStyles = "bg-neutral-700 cursor-not-allowed opacity-50";
+  const disabledStyles = "bg-elevated text-muted cursor-not-allowed opacity-50";
 
   return (
     <button

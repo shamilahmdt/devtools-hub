@@ -12,7 +12,6 @@ export default function Search() {
     setIsMac(navigator.platform.toUpperCase().indexOf("MAC") >= 0);
   }, []);
 
-  // load recent searches from local storage
   useEffect(() => {
     const saved = localStorage.getItem("recent_tools");
     if (saved) {
@@ -24,7 +23,6 @@ export default function Search() {
     }
   }, []);
 
-  // filter tools based on query
   const filteredTools = query.trim()
     ? tools.filter((tool) =>
         tool.name.toLowerCase().includes(query.toLowerCase()) ||
@@ -32,15 +30,13 @@ export default function Search() {
       )
     : [];
 
-  // default tools if no search query (recent or most useful)
   const defaultTools = recentSearches.length > 0 
     ? recentSearches 
-    : tools.slice(0, 3); // fallback to first 3 tools as "most useful"
+    : tools.slice(0, 3);
 
   const displayTools = query.trim() ? filteredTools : defaultTools;
 
   const handleSelect = (tool: Tool) => {
-    // save to recent searches -keep last 3
     const updatedRecent = [
       tool,
       ...recentSearches.filter((t) => t.href !== tool.href),
@@ -55,7 +51,6 @@ export default function Search() {
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // handle keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if ((event.metaKey || event.ctrlKey) && event.key === "k") {
@@ -71,7 +66,6 @@ export default function Search() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  // close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
@@ -91,7 +85,7 @@ export default function Search() {
   return (
     <div ref={containerRef} className="relative w-full max-w-md">
       <div className="relative group">
-        <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-neutral-500 group-focus-within:text-blue-500 transition-colors">
+        <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-muted group-focus-within:text-accent transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
           </svg>
@@ -103,7 +97,7 @@ export default function Search() {
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => setIsOpen(true)}
           placeholder="Search tools..."
-          className="w-full bg-neutral-900 border border-neutral-800 text-white text-sm rounded-xl py-2.5 pl-10 pr-12 outline-none focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 transition-all placeholder:text-neutral-500"
+          className="w-full bg-search-bg border border-border text-primary text-sm rounded-xl py-2.5 pl-10 pr-12 outline-none focus:border-accent/50 focus:ring-4 focus:ring-accent/10 transition-all placeholder:text-muted"
         />
         
         <div className="absolute inset-y-0 right-3 flex items-center gap-2">
@@ -113,7 +107,7 @@ export default function Search() {
                 setQuery("");
                 inputRef.current?.focus();
               }}
-              className="p-1 rounded-md hover:bg-neutral-800 text-neutral-500 hover:text-white transition-colors"
+              className="p-1 rounded-md hover:bg-elevated text-muted hover:text-primary transition-colors"
               title="Clear search"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -121,24 +115,23 @@ export default function Search() {
               </svg>
             </button>
           ) : (
-            <div className="hidden sm:flex items-center gap-1 px-1.5 py-0.5 rounded border border-neutral-800 bg-neutral-950 text-[10px] font-medium text-neutral-500 pointer-events-none">
+            <div className="hidden sm:flex items-center gap-1 px-1.5 py-0.5 rounded border border-border bg-ground text-[10px] font-medium text-muted pointer-events-none">
               <span className="text-[12px]">{isMac ? "⌘" : "Ctrl"}</span>K
             </div>
           )}
         </div>
       </div>
 
-      {/* dropdown */}
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-neutral-900 border border-neutral-800 rounded-xl shadow-2xl shadow-black/50 overflow-hidden z-[60] animate-in fade-in slide-in-from-top-2 duration-200">
-          <div className="p-2 border-b border-neutral-800 bg-neutral-900/50 flex justify-between items-center">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-500 px-2">
+        <div className="absolute top-full left-0 right-0 mt-2 bg-surface border border-border rounded-xl shadow-2xl shadow-black/50 overflow-hidden z-[60] animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="p-2 border-b border-border bg-surface/50 flex justify-between items-center">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-muted px-2">
               {query.trim() ? "Search Results" : recentSearches.length > 0 ? "Recent Tools" : "Suggested Tools"}
             </span>
             {!query.trim() && recentSearches.length > 0 && (
               <button 
                 onClick={clearRecent}
-                className="text-[10px] font-bold uppercase tracking-wider text-neutral-500 hover:text-red-400 px-2 transition-colors"
+                className="text-[10px] font-bold uppercase tracking-wider text-muted hover:text-danger px-2 transition-colors"
               >
                 Clear
               </button>
@@ -151,28 +144,28 @@ export default function Search() {
                 <button
                   key={tool.href}
                   onClick={() => handleSelect(tool)}
-                  className="w-full flex items-start gap-3 p-3 text-left hover:bg-neutral-800 transition-colors group"
+                  className="w-full flex items-start gap-3 p-3 text-left hover:bg-search-hover transition-colors group"
                 >
                   <div 
-                    className="size-8 rounded-lg bg-neutral-800 text-neutral-400 group-hover:bg-blue-500 group-hover:text-white flex items-center justify-center transition-colors shrink-0"
+                    className="size-8 rounded-lg bg-elevated text-muted group-hover:bg-accent group-hover:text-white flex items-center justify-center transition-colors shrink-0"
                     dangerouslySetInnerHTML={{ __html: tool.icon }} 
                   />
                   <div className="min-w-0 flex-1">
-                    <div className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">{tool.name}</div>
-                    <div className="text-xs text-neutral-500 line-clamp-1 truncate">{tool.description}</div>
+                    <div className="text-sm font-semibold text-primary group-hover:text-accent transition-colors">{tool.name}</div>
+                    <div className="text-xs text-muted line-clamp-1 truncate">{tool.description}</div>
                   </div>
                 </button>
               ))
             ) : (
-              <div className="p-8 text-center text-neutral-500 text-sm">
+              <div className="p-8 text-center text-muted text-sm">
                 No tools found for "{query}"
               </div>
             )}
           </div>
 
-          <div className="p-2 border-t border-neutral-800 bg-neutral-900/50 flex justify-between items-center px-4">
-            <span className="text-[10px] text-neutral-600">Press Esc to close</span>
-            <span className="text-[10px] text-neutral-600 font-mono">CMD+K</span>
+          <div className="p-2 border-t border-border bg-surface/50 flex justify-between items-center px-4">
+            <span className="text-[10px] text-secondary">Press Esc to close</span>
+            <span className="text-[10px] text-secondary font-mono">CMD+K</span>
           </div>
         </div>
       )}

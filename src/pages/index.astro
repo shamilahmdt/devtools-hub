@@ -8,10 +8,10 @@ import { tools } from "../constants/tools";
   description="Your ultimate online developer utility belt. Instantly format JSON, decode Base64, generate UUIDs, and more in a fast, free, offline-ready web app."
 >
   <div class="mb-12">
-    <h2 class="text-3xl font-bold text-white tracking-tight mb-2">
+    <h2 class="text-3xl font-bold text-primary tracking-tight mb-2">
       Available Tools
     </h2>
-    <p class="text-neutral-400">
+    <p class="text-secondary">
       Essential utilities to boost your productivity.
     </p>
   </div>
@@ -21,16 +21,16 @@ import { tools } from "../constants/tools";
       tools.map((tool) => (
         <a
           href={tool.href}
-          class="group relative overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900 p-6 transition-all hover:border-blue-500/50 hover:bg-neutral-800/50"
+          class="group relative overflow-hidden rounded-xl border border-border bg-surface p-6 transition-all hover:border-accent/50 hover:bg-elevated"
         >
           <div
-            class="mb-4 inline-flex size-10 items-center justify-center rounded-lg bg-blue-500/10 text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-colors"
+            class="mb-4 inline-flex size-10 items-center justify-center rounded-lg bg-accent-bg text-accent group-hover:bg-accent group-hover:text-white transition-colors"
             set:html={tool.icon}
           />
 
-          <h3 class="text-lg font-semibold text-white mb-2">{tool.name}</h3>
+          <h3 class="text-lg font-semibold text-primary mb-2">{tool.name}</h3>
 
-          <p class="text-sm text-neutral-400">{tool.description}</p>
+          <p class="text-sm text-secondary">{tool.description}</p>
         </a>
       ))
     }

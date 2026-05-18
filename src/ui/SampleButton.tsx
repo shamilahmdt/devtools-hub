@@ -7,7 +7,7 @@ export default function SampleButton({ onClick, ...rest }: SampleButtonProps) {
     <button
       {...rest}
       onClick={onClick}
-      className="text-xs text-blue-500 hover:text-blue-400"
+      className="text-xs text-accent hover:text-accent-hover"
     >
       Sample
     </button>

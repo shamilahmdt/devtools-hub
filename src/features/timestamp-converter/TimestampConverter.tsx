@@ -139,61 +139,57 @@ export default function TimestampConverter() {
       </ToolActions>
 
       {output.error && (
-        <div className="rounded-xl border border-red-500/20 bg-red-500/10 p-4 text-sm text-red-400">
+        <div className="rounded-xl border border-danger-border bg-danger-bg p-4 text-sm text-danger">
           {output.error}
         </div>
       )}
 
       <div className="grid gap-4 md:grid-cols-2">
-        {/* local */}
-        <div className="rounded-xl border border-neutral-800 bg-neutral-900 p-4 space-y-2">
+        <div className="rounded-xl border border-border bg-surface p-4 space-y-2">
           <div className="flex items-center justify-between">
-            <p className="text-xs font-medium text-neutral-400">Local Time</p>
+            <p className="text-xs font-medium text-secondary">Local Time</p>
             {output.local && (
               <CopyButton value={output.local} />
             )}
           </div>
-          <p className="font-mono text-sm text-white break-all">
-            {output.local || <span className="text-neutral-600">—</span>}
+          <p className="font-mono text-sm text-primary break-all">
+            {output.local || <span className="text-muted">—</span>}
           </p>
         </div>
 
-        {/* utc */}
-        <div className="rounded-xl border border-neutral-800 bg-neutral-900 p-4 space-y-2">
+        <div className="rounded-xl border border-border bg-surface p-4 space-y-2">
           <div className="flex items-center justify-between">
-            <p className="text-xs font-medium text-neutral-400">UTC Time</p>
+            <p className="text-xs font-medium text-secondary">UTC Time</p>
             {output.utc && (
               <CopyButton value={output.utc} />
             )}
           </div>
-          <p className="font-mono text-sm text-white break-all">
-            {output.utc || <span className="text-neutral-600">—</span>}
+          <p className="font-mono text-sm text-primary break-all">
+            {output.utc || <span className="text-muted">—</span>}
           </p>
         </div>
 
-        {/* seconds */}
-        <div className="rounded-xl border border-neutral-800 bg-neutral-900 p-4 space-y-2">
+        <div className="rounded-xl border border-border bg-surface p-4 space-y-2">
           <div className="flex items-center justify-between">
-            <p className="text-xs font-medium text-neutral-400">Unix (seconds)</p>
+            <p className="text-xs font-medium text-secondary">Unix (seconds)</p>
             {output.seconds && (
               <CopyButton value={output.seconds} />
             )}
           </div>
-          <p className="font-mono text-sm text-white">
-            {output.seconds || <span className="text-neutral-600">—</span>}
+          <p className="font-mono text-sm text-primary">
+            {output.seconds || <span className="text-muted">—</span>}
           </p>
         </div>
 
-        {/* milliseconds */}
-        <div className="rounded-xl border border-neutral-800 bg-neutral-900 p-4 space-y-2">
+        <div className="rounded-xl border border-border bg-surface p-4 space-y-2">
           <div className="flex items-center justify-between">
-            <p className="text-xs font-medium text-neutral-400">Unix (milliseconds)</p>
+            <p className="text-xs font-medium text-secondary">Unix (milliseconds)</p>
             {output.milliseconds && (
               <CopyButton value={output.milliseconds} />
             )}
           </div>
-          <p className="font-mono text-sm text-white">
-            {output.milliseconds || <span className="text-neutral-600">—</span>}
+          <p className="font-mono text-sm text-primary">
+            {output.milliseconds || <span className="text-muted">—</span>}
           </p>
         </div>
       </div>

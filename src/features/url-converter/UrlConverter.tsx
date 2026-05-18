@@ -62,26 +62,26 @@ export default function UrlConverter() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between rounded-xl border border-neutral-800 bg-neutral-900 px-4 py-3">
+      <div className="flex items-center justify-between rounded-xl border border-border bg-surface px-4 py-3">
         <label className="flex cursor-pointer items-center gap-3">
           <input
             type="checkbox"
             checked={encodeFullUrl}
             onChange={(event) => setEncodeFullUrl(event.target.checked)}
-            className="size-4 rounded border-neutral-700 bg-neutral-950 accent-blue-600"
+            className="size-4 rounded border-border bg-ground accent-accent"
           />
 
-          <span className="text-sm font-medium text-white">
+          <span className="text-sm font-medium text-primary">
             Encode full URL
           </span>
         </label>
 
         <div className="group relative">
-          <span className="flex size-5 cursor-help items-center justify-center rounded-full border border-neutral-700 text-xs text-neutral-400">
+          <span className="flex size-5 cursor-help items-center justify-center rounded-full border border-border text-xs text-muted">
             ?
           </span>
 
-          <div className="pointer-events-none absolute right-0 top-7 z-10 w-64 rounded-lg border border-neutral-800 bg-neutral-950 px-3 py-2 text-xs text-neutral-300 opacity-0 shadow-lg transition-opacity group-hover:opacity-100">
+          <div className="pointer-events-none absolute right-0 top-7 z-10 w-64 rounded-lg border border-border bg-surface px-3 py-2 text-xs text-secondary opacity-0 shadow-lg transition-opacity group-hover:opacity-100">
             On: encode the whole URL. Off: keep the URL readable and encode only
             query values.
           </div>
@@ -90,7 +90,6 @@ export default function UrlConverter() {
 
       <div className="grid gap-4 md:grid-cols-2">
 
-        {/*Input */}
         <ToolTextarea
           label="Input"
           value={input}
@@ -102,7 +101,6 @@ export default function UrlConverter() {
           }
         />
 
-        {/*Output */}
         <ToolTextarea
           label="Output"
           value={output}

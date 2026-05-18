@@ -23,7 +23,7 @@ export default function UuidGenerator() {
                     readOnly
                     value={uuid}
                     placeholder="Generated UUID will appear here"
-                    className="w-full rounded-xl border border-neutral-800 bg-neutral-900 p-4 font-mono text-sm text-white outline-none"
+                    className="w-full rounded-xl border border-border bg-surface p-4 font-mono text-sm text-primary outline-none"
                 />
                 {uuid && (
                     <CopyButton

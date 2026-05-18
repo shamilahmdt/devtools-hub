@@ -5,8 +5,8 @@ type ToolTextareaProps = {
   placeholder?: string;
   rows?: number;
   readOnly?: boolean;
-  rightLabel?: React.ReactNode; // e.g. Sample button
-  children?: React.ReactNode; // overlay (copy button)
+  rightLabel?: React.ReactNode;
+  children?: React.ReactNode;
   textColor?: "default" | "accent";
 };
 
@@ -25,7 +25,7 @@ export default function ToolTextarea({
     <div className="space-y-2 w-full">
       {(label || rightLabel) && (
         <div className="flex justify-between">
-          <label className="text-sm text-neutral-400">{label}</label>
+          <label className="text-sm text-secondary">{label}</label>
           {rightLabel}
         </div>
       )}
@@ -37,8 +37,8 @@ export default function ToolTextarea({
           readOnly={readOnly}
           placeholder={placeholder}
           onChange={(e) => onChange?.(e.target.value)}
-          className={`custom-scrollbar w-full rounded-xl border border-neutral-800 bg-neutral-900 p-4 font-mono text-sm outline-none focus:border-blue-500/50 ${
-            textColor === "accent" ? "text-blue-400" : "text-white"
+          className={`custom-scrollbar w-full rounded-xl border border-border bg-surface p-4 font-mono text-sm outline-none focus:border-accent/50 ${
+            textColor === "accent" ? "text-accent" : "text-primary"
           }`}
         />
             {children}

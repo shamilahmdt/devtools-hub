@@ -62,7 +62,6 @@ export default function JsonFormatter() {
   return (
     <div className="space-y-6">
       <div className="grid gap-4 md:grid-cols-2">
-        {/*Input */}
         <ToolTextarea
           label="Input"
           value={input}
@@ -74,7 +73,6 @@ export default function JsonFormatter() {
           }
         />
 
-        {/*Output */}
         <ToolTextarea
           label="Output"
           value={output}

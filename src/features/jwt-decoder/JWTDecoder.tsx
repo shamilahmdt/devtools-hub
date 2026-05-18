@@ -151,13 +151,12 @@ export default function JWTDecoder() {
       </ToolActions>
 
       {decoded.error && (
-        <div className="rounded-xl border border-red-500/20 bg-red-500/10 p-4 text-sm font-medium text-red-400">
+        <div className="rounded-xl border border-danger-border bg-danger-bg p-4 text-sm font-medium text-danger">
           {decoded.error}
         </div>
       )}
 
       <div className="grid gap-4 md:grid-cols-2">
-        {/* header output */}
         <ToolTextarea
           label="Header"
           value={decoded.header ? formatJson(decoded.header) : "Header will appear here"}
@@ -173,7 +172,6 @@ export default function JWTDecoder() {
           )}
         </ToolTextarea>
 
-        {/* payload output */}
         <ToolTextarea
           label="Payload"
           value={decoded.payload ? formatJson(decoded.payload) : "Payload will appear here"}
@@ -190,7 +188,6 @@ export default function JWTDecoder() {
         </ToolTextarea>
       </div>
 
-      {/* signature output */}
       <ToolTextarea
         label="Signature"
         value={decoded.signature || "Signature will appear here"}
@@ -206,9 +203,9 @@ export default function JWTDecoder() {
         )}
       </ToolTextarea>
 
-      <div className="rounded-xl border border-neutral-800 bg-neutral-900/50 p-4">
-        <p className="text-xs leading-relaxed text-neutral-500">
-          <span className="font-semibold text-neutral-400">Security note:</span>{" "}
+      <div className="rounded-xl border border-border bg-surface/50 p-4">
+        <p className="text-xs leading-relaxed text-muted">
+          <span className="font-semibold text-secondary">Security note:</span>{" "}
           this tool only decodes jwt data in your browser. decoding does not
           verify the signature or prove the token is trusted.
         </p>

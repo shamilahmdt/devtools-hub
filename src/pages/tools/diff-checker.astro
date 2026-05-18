@@ -1,0 +1,13 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import DiffCheckerTool from "../../features/diff-checker/DiffChecker";
+---
+
+<BaseLayout
+  title="Diff Checker | Free Online Developer Tool"
+  description="Compare code, JSON, configuration, and text locally with a fast side-by-side diff checker."
+>
+  <h2 class="mb-6 text-2xl font-semibold">Diff Checker</h2>
+
+  <DiffCheckerTool client:load />
+</BaseLayout>

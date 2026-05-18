@@ -16,8 +16,12 @@
   --color-danger: #f87171;
   --color-danger-bg: rgba(239, 68, 68, 0.1);
   --color-danger-border: rgba(239, 68, 68, 0.2);
+  --color-warning: #fbbf24;
+  --color-warning-bg: rgba(245, 158, 11, 0.1);
+  --color-warning-border: rgba(245, 158, 11, 0.2);
   --color-success: #4ade80;
   --color-success-bg: rgba(34, 197, 94, 0.1);
+  --color-success-border: rgba(34, 197, 94, 0.2);
   --color-header-bg: rgba(15, 17, 21, 0.8);
   --color-search-bg: #151922;
   --color-search-hover: #1a1f2e;
@@ -39,8 +43,12 @@
   --color-danger: #dc2626;
   --color-danger-bg: rgba(239, 68, 68, 0.06);
   --color-danger-border: rgba(239, 68, 68, 0.15);
+  --color-warning: #b45309;
+  --color-warning-bg: rgba(245, 158, 11, 0.08);
+  --color-warning-border: rgba(245, 158, 11, 0.18);
   --color-success: #16a34a;
   --color-success-bg: rgba(34, 197, 94, 0.06);
+  --color-success-border: rgba(34, 197, 94, 0.16);
   --color-header-bg: rgba(248, 250, 252, 0.8);
   --color-search-bg: #ffffff;
   --color-search-hover: #f1f5f9;

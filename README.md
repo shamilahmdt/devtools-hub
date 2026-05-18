@@ -12,6 +12,7 @@ Our goal is to make common developer tasks simpler while keeping your data safe.
 - **JWT Decoder**: Decode and inspect JSON Web Tokens locally.
 - **Base64 Converter**: Encode and decode text to Base64 format.
 - **URL Converter**: Safely encode or decode URL components.
+- **Diff Checker**: Compare text, code, JSON, or config side by side.
 - **Timestamp Converter**: Convert between Unix timestamps and readable dates.
 - **UUID Generator**: Create secure, random UUIDs (v4).
 - **Beautiful Dark Mode**: A sleek design that is easy on the eyes.
@@ -77,4 +78,3 @@ We welcome contributions of all kinds! Whether it's a bug fix or a new tool, we 
 ## 📄 License
 
 This project is open-source and available under the [MIT License](./LICENSE).
-

@@ -22,6 +22,9 @@
     <loc>https://devtools-hub-beryl.vercel.app/tools/url-converter</loc>
   </url>
   <url>
+    <loc>https://devtools-hub-beryl.vercel.app/tools/diff-checker</loc>
+  </url>
+  <url>
     <loc>https://devtools-hub-beryl.vercel.app/tools/uuid-generator</loc>
   </url>
 </urlset>

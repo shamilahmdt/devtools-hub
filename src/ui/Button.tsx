@@ -1,4 +1,4 @@
-type ButtonProps = {
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode;
   onClick?: () => void;
   variant?: "primary" | "secondary";
@@ -10,6 +10,7 @@ export default function Button({
   onClick,
   variant = "primary",
   isDisabled = false,
+  className = "",
   ...rest
 }: ButtonProps) {
   const base =
@@ -29,7 +30,7 @@ export default function Button({
       {...rest}  
       onClick={onClick}
       disabled={isDisabled}
-      className={`${base} ${isDisabled ? disabledStyles : variants[variant]}`}
+      className={`${base} ${isDisabled ? disabledStyles : variants[variant]} ${className}`}
       type="button"
     >
       {children}
